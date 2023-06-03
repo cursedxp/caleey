@@ -1,7 +1,6 @@
 import "./globals.scss";
 import { Inter } from "next/font/google";
 import TopNavigation from "./components/TopNavigation/TopNavigation";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -18,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <TopNavigation />
+
         {children}
       </body>
     </html>
