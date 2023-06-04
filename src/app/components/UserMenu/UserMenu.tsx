@@ -1,39 +1,48 @@
 "use client";
+import Link from "next/link";
+import { useEffect, useCallback, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   EllipsisVerticalIcon,
   CreditCardIcon,
   UserIcon,
   ArrowLeftOnRectangleIcon,
 } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import "./UserMenu.scss";
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 
 export default function UserMenu() {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleClick = () => {
-    setShowMenu(!showMenu);
+    setShowMenu((prevShowMenu) => !prevShowMenu);
   };
 
-  const handleOutsideClick = useRef((event: any) => {
-    //checks if the element that was clicked on, or any of its ancestors in the DOM, has a class of .menu-button
-    if (showMenu && !event.target.closest(".menu-button")) {
-      setShowMenu(false);
-    }
-  });
+  //useCallback helps us control when a function in our code should be recreated or not. In React, recreating functions too often can slow things down
+
+  const handleOutsideClick = useCallback(
+    (event: any) => {
+      //checks if the element that was clicked on, or any of its ancestors in the DOM, has a class of .menu-button
+      if (showMenu) {
+        setShowMenu((prevShowMenu) => {
+          if (!event.target.closest(".menu-button")) {
+            return false;
+          }
+          return prevShowMenu;
+        });
+      }
+    },
+    [showMenu]
+  );
 
   useEffect(() => {
-    const handleClick = handleOutsideClick.current;
     //listens the event and calls handleOutsideClick if the event is happen
-    window.addEventListener("click", handleClick);
+    window.addEventListener("click", handleOutsideClick);
 
     //"cleanup function". In this case, the cleanup function is being used to remove an event listener from the window object.
     return () => {
-      window.removeEventListener("click", handleClick);
+      window.removeEventListener("click", handleOutsideClick);
     };
-  }, [showMenu]);
+  }, [handleOutsideClick]);
 
   return (
     <div
