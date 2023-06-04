@@ -1,0 +1,15 @@
+.user-menu {
+  li {
+    padding: 1em;
+    &:hover {
+      background-color: rgb(244 244 245);
+    }
+    &:first-child {
+      border-radius: 10px 10px 0 0;
+    }
+    &:last-child {
+      border-top: 1px solid rgb(244 244 245);
+      border-radius: 0 0 10px 10px;
+    }
+  }
+}
