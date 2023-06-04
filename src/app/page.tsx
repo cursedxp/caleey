@@ -1,3 +1,9 @@
+import Link from "next/link";
+
 export default function Home() {
-  return <main>Home</main>;
+  return (
+    <main>
+      <Link href={"/events"}>events</Link>
+    </main>
+  );
 }
