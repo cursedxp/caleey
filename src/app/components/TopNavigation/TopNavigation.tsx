@@ -1,17 +1,13 @@
 "use client";
-import {
-  EllipsisVerticalIcon,
-  CreditCardIcon,
-  UserIcon,
-  ArrowLeftOnRectangleIcon,
-  SunIcon,
-} from "@heroicons/react/24/outline";
+
 import "./TopNavigation.scss";
 import Logo from "../../../../public/assets/img/caleeyLogo.svg";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { SunIcon } from "@heroicons/react/24/outline";
+import UserMenu from "../UserMenu/UserMenu";
 
 export default function TopNavigation() {
   const [isLoggedin, setIsLoggedin] = useState(false);
@@ -43,29 +39,7 @@ export default function TopNavigation() {
               calleey.com/johndoe
             </Link>
           </div>
-          <div className=" p-2 rounded-lg bg-gray-200 relative hover:cursor-pointer">
-            <EllipsisVerticalIcon className="h-6 w-6" />
-            <ul className="user-settings absolute top-12 right-0 shadow-md bg-white rounded-xl w-56">
-              <li>
-                <Link href="">
-                  <UserIcon className="h-6 w-6 inline-block mr-4" />
-                  <span>Account Settings</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="">
-                  <CreditCardIcon className="h-6 w-6 inline-block mr-4" />
-                  <span>Billing</span>
-                </Link>
-              </li>
-              <li className="">
-                <Link href="">
-                  <ArrowLeftOnRectangleIcon className="h-6 w-6 inline-block mr-4" />
-                  <span>Logout</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <UserMenu />
         </div>
       </header>
     </motion.div>
