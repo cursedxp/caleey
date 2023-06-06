@@ -1,18 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const dataSlice = createSlice({
-  name: "data",
+  name: "theme",
   initialState: {
     darkMode: false,
   },
   reducers: {
     setDarkMode: (state) => {
-      state.darkMode = true;
-    },
-    setLightMode: (state) => {
-      state.darkMode = false;
+      state.darkMode = !state.darkMode;
     },
   },
 });
-export const { setDarkMode, setLightMode } = dataSlice.actions;
+export const { setDarkMode } = dataSlice.actions;
 export default dataSlice.reducer;
