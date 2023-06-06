@@ -7,13 +7,11 @@ interface AppProps {
   pageProps: any; // Replace 'any' with the appropriate type for pageProps
 }
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Provider store={store}>
-        <TopNavigation />
-        <Component {...pageProps} />
-      </Provider>
-    </>
+    <Provider store={store}>
+      <TopNavigation />
+      <Component {...pageProps} />
+    </Provider>
   );
 }
