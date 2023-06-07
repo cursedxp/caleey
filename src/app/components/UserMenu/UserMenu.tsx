@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useCallback, useState } from "react";
+import { useEffect, useCallback, useState, FC } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   EllipsisVerticalIcon,
@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import "./UserMenu.scss";
 
-export default function UserMenu() {
+const UserMenu: FC = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleClick = () => {
@@ -20,15 +20,10 @@ export default function UserMenu() {
   //useCallback helps us control when a function in our code should be recreated or not. In React, recreating functions too often can slow things down
 
   const handleOutsideClick = useCallback(
-    (event: any) => {
-      //checks if the element that was clicked on, or any of its ancestors in the DOM, has a class of .menu-button
-      if (showMenu) {
-        setShowMenu((prevShowMenu) => {
-          if (!event.target.closest(".menu-button")) {
-            return false;
-          }
-          return prevShowMenu;
-        });
+    (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (showMenu && target && !target.closest(".menu-button")) {
+        setShowMenu(false);
       }
     },
     [showMenu]
@@ -83,4 +78,6 @@ export default function UserMenu() {
       </AnimatePresence>
     </div>
   );
-}
+};
+
+export default UserMenu;
