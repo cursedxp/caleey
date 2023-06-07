@@ -46,7 +46,7 @@ export default function UserMenu() {
 
   return (
     <div
-      className="menu-button p-2 rounded-lg hover:bg-gray-200 relative hover:cursor-pointer"
+      className="menu-button p-2 rounded-lg dark:hover:bg-blue-600 hover:bg-gray-200 relative hover:cursor-pointer"
       onClick={handleClick}
     >
       <EllipsisVerticalIcon className="h-6 w-6" />
@@ -58,20 +58,20 @@ export default function UserMenu() {
             exit={{ opacity: 0, x: -190, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <ul className="user-menu absolute shadow-md bg-white rounded-xl w-56">
-              <li>
+            <ul className="user-menu absolute shadow-md dark:bg-slate-950 dark:text-white bg-white rounded-xl w-56">
+              <li className=" dark:hover:bg-blue-600 dark:hover:text-white">
                 <Link href="">
                   <UserIcon className="h-6 w-6 inline-block mr-4" />
                   <span>Account Settings</span>
                 </Link>
               </li>
-              <li>
+              <li className=" dark:hover:bg-blue-600 dark:hover:text-white">
                 <Link href="">
                   <CreditCardIcon className="h-6 w-6 inline-block mr-4" />
                   <span>Billing</span>
                 </Link>
               </li>
-              <li className="">
+              <li className=" dark:hover:bg-blue-600 dark:hover:text-white">
                 <Link href="">
                   <ArrowLeftOnRectangleIcon className="h-6 w-6 inline-block mr-4" />
                   <span>Logout</span>
