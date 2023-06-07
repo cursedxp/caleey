@@ -2,8 +2,8 @@ import { useEffect, useState, FC } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
-import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { setDarkMode } from "@/app/data/dataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setDarkMode, RootState } from "@/app/data/dataSlice";
 import UserMenu from "../UserMenu/UserMenu";
 import Image from "next/image";
 import Logo from "../../../../public/assets/img/caleeyLogo.svg";
@@ -41,7 +41,7 @@ const TopNavigation: FC = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
   // We use useSelector to get the current state of the dark mode from the Redux store.
-  const darkMode = useSelector((state: RootStateOrAny) => state.theme.darkMode);
+  const darkMode = useSelector((state: RootState) => state.theme.darkMode);
   // We get the dispatch function from Redux.
   const dispatch = useDispatch();
 
