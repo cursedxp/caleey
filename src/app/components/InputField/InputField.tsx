@@ -5,7 +5,6 @@ interface InputProps {
   description: string | "";
   label: string;
   placeholder: string | "";
-  onChange: (value: string) => void | "";
 }
 
 const InputField: FC<InputProps> = ({
