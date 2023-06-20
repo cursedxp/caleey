@@ -28,7 +28,6 @@ const CreateEvent: FC = () => {
               question="Event Title"
               description="Descriptive title for your event to help attendees understand its nature."
               label="eventTitle"
-              value=""
               placeholder=""
             />
           </div>
@@ -37,7 +36,6 @@ const CreateEvent: FC = () => {
               question="Event Link"
               description="Share a unique link for your event to facilitate easy access and participation"
               label="eventLink"
-              value=""
               placeholder=""
             />
           </div>
