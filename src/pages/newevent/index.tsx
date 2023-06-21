@@ -1,3 +1,4 @@
+import ColorSelect from "@/app/components/ColorSelect/ColorSelect";
 import InputField from "@/app/components/InputField/InputField";
 import TextArea from "@/app/components/TextArea/TextArea";
 import { CalendarIcon, InboxArrowDownIcon } from "@heroicons/react/24/outline";
@@ -30,6 +31,7 @@ const CreateEvent: FC = () => {
               label="eventTitle"
               placeholder=""
             />
+            <ColorSelect />
           </div>
           <div className="input-group flex gap-4">
             <InputField
